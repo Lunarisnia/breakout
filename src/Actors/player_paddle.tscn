@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c61oxo6sx6ncg"]
+
+[ext_resource type="PackedScene" uid="uid://dd4pa4xhh1o7v" path="res://src/Actors/paddle.tscn" id="1_bippp"]
+[ext_resource type="Script" path="res://src/Actors/player_paddle.gd" id="2_8wyls"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_464y3"]
+radius = 4.0
+height = 160.0
+
+[node name="Paddle" instance=ExtResource("1_bippp")]
+rotation = -1.5708
+script = ExtResource("2_8wyls")
+
+[node name="Sprite" parent="." index="0"]
+scale = Vector2(4, 10)
+
+[node name="Collision" parent="." index="1"]
+position = Vector2(4, -1.086e-05)
+shape = SubResource("CapsuleShape2D_464y3")

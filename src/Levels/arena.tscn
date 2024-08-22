@@ -1,0 +1,100 @@
+[gd_scene load_steps=14 format=4 uid="uid://8jqaw8vqfgnd"]
+
+[ext_resource type="PackedScene" uid="uid://cyb2ys6q205c7" path="res://src/Actors/game_manager.tscn" id="1_ccfmf"]
+[ext_resource type="Texture2D" uid="uid://cgcg6geg16ovk" path="res://assets/arena.png" id="1_f7vqr"]
+[ext_resource type="PackedScene" uid="uid://1p2vh6ulsbvs" path="res://src/Levels/bricks_01.tscn" id="2_1xow1"]
+[ext_resource type="PackedScene" uid="uid://c61oxo6sx6ncg" path="res://src/Actors/player_paddle.tscn" id="2_6a15v"]
+[ext_resource type="PackedScene" uid="uid://cak5h144vls8g" path="res://src/UI/fps_counter.tscn" id="3_k2lit"]
+[ext_resource type="PackedScene" uid="uid://btlahm62t4x5j" path="res://src/Levels/bricks_02.tscn" id="3_phvfi"]
+[ext_resource type="PackedScene" uid="uid://b4dh5lf40gw7j" path="res://src/Actors/ball.tscn" id="4_6blwg"]
+[ext_resource type="PackedScene" uid="uid://cbliuki78vxpl" path="res://src/Levels/bricks_03.tscn" id="4_dsqvd"]
+[ext_resource type="PackedScene" uid="uid://yuo67flg0l5q" path="res://src/UI/score_counter.tscn" id="7_ycgmt"]
+[ext_resource type="PackedScene" uid="uid://dvom4mec08g0m" path="res://src/Audios/audio_manager.tscn" id="8_5uoel"]
+[ext_resource type="PackedScene" uid="uid://nxe8cwna5w77" path="res://src/UI/life_counter.tscn" id="9_vtxej"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0n57l"]
+texture = ExtResource("1_f7vqr")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -6, -5.92202, -5.92202, -6, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -6.01357, -8, -6.01357, -8, -8, 8, -8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -6.01357, -8, -6.01357, -8, -8, 8, -8)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -6.01357, -8, -6.01357, -8, -8, 8, -8)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 8, 6.01357, 8, 6.12493, -6.12493, -8, -6.01357, -8, -8, 8, -8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, -8, -8, -6.12493, -8, -6.01357, 8)
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 8, 8, -8, 6.12493, -8, 6.01357, 8)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -6.01357, -8, -6.12493, 5.9022, 8, 6.01357, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 8, -8, 8, -8, 6.12493, 8, 6.01357)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 8, -8, 8, -8, 6.12493, 8, 6.01357)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 8, -8, 8, -8, 6.12493, 8, 6.01357)
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 6.01357, -8, 6.12493, 5.9022, -8, 6.01357, -8, 8, 8, 8)
+
+[sub_resource type="TileSet" id="TileSet_8t2ws"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_0n57l")
+
+[node name="Arena" type="Node2D"]
+
+[node name="GameManager" parent="." node_paths=PackedStringArray("paddle_start") instance=ExtResource("1_ccfmf")]
+paddle_start = NodePath("../PaddleStart")
+stages = Array[PackedScene]([ExtResource("2_1xow1"), ExtResource("3_phvfi"), ExtResource("4_dsqvd")])
+metadata/_edit_lock_ = true
+
+[node name="AudioManager" parent="." instance=ExtResource("8_5uoel")]
+position = Vector2(388, 253)
+metadata/_edit_lock_ = true
+
+[node name="Arena" type="TileMapLayer" parent="."]
+texture_filter = 1
+texture_repeat = 1
+use_parent_material = true
+position = Vector2(24, 93)
+scale = Vector2(3.5, 3.5)
+tile_map_data = PackedByteArray("AAAAAAcAAAAAAAEAAAAAAAYAAAAAAAEAAAAAAAUAAAAAAAEAAAAAAAQAAAAAAAEAAAAAAAMAAAAAAAEAAAAAAAIAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAP//AAAAAAAAAAABAP//AAABAAAAAAACAP//AAABAAAAAAADAP//AAABAAAAAAAEAP//AAABAAAAAAAFAP//AAABAAAAAAAGAP//AAABAAAAAAAHAP//AAABAAAAAAAIAP//AAABAAAAAAAJAP//AAABAAAAAAAKAP//AAABAAAAAAALAP//AAABAAAAAAAMAP//AAAEAAAAAAAMAAAAAAAEAAEAAAAMAAEAAAAEAAEAAAAMAAIAAAAEAAEAAAAMAAMAAAAEAAEAAAAMAAQAAAAEAAEAAAAMAAUAAAAEAAEAAAAMAAYAAAAEAAEAAAAMAAcAAAAEAAEAAAA=")
+tile_set = SubResource("TileSet_8t2ws")
+
+[node name="Player" parent="." instance=ExtResource("2_6a15v")]
+position = Vector2(386, 441)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="FpsCounter" parent="CanvasLayer" instance=ExtResource("3_k2lit")]
+offset_left = 1.0
+offset_right = 1.0
+metadata/_edit_lock_ = true
+
+[node name="ScoreCounter" parent="CanvasLayer" instance=ExtResource("7_ycgmt")]
+
+[node name="LifeCounter" parent="CanvasLayer" instance=ExtResource("9_vtxej")]
+
+[node name="Ball" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_6blwg")]
+position = Vector2(388, 253)
+player = NodePath("../Player")
+
+[node name="PaddleStart" type="Marker2D" parent="."]
+position = Vector2(386, 441)
+
+[connection signal="game_over" from="GameManager" to="Player" method="_on_game_over"]
+[connection signal="game_over" from="GameManager" to="Ball" method="_on_game_over"]
+[connection signal="highscore_change" from="GameManager" to="CanvasLayer/ScoreCounter" method="_on_highscore_change"]
+[connection signal="life_change" from="GameManager" to="CanvasLayer/LifeCounter" method="_on_life_change"]
+[connection signal="respawn" from="GameManager" to="Player" method="_on_game_manager_respawn"]
+[connection signal="respawn" from="GameManager" to="Ball" method="_on_game_manager_respawn"]
+[connection signal="score_change" from="GameManager" to="CanvasLayer/ScoreCounter" method="_on_score_change"]
+[connection signal="start_game" from="GameManager" to="Ball" method="_on_start_game"]
+[connection signal="brick_destroyed" from="Ball" to="GameManager" method="_on_brick_destroyed"]
+[connection signal="exit_position" from="Ball" to="GameManager" method="_on_ball_exit_position"]
+[connection signal="play_audio" from="Ball" to="AudioManager" method="_on_play_audio"]

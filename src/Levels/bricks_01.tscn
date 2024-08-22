@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://1p2vh6ulsbvs"]
+
+[ext_resource type="PackedScene" uid="uid://cgfudsoqbha7a" path="res://src/Actors/brick.tscn" id="1_dv0jc"]
+[ext_resource type="Script" path="res://src/Levels/brick_manager.gd" id="1_q68en"]
+
+[node name="Bricks01" type="Node2D"]
+script = ExtResource("1_q68en")
+
+[node name="Brick" parent="." instance=ExtResource("1_dv0jc")]
+position = Vector2(388, 129)
+
+[node name="Brick2" parent="." instance=ExtResource("1_dv0jc")]
+position = Vector2(479, 129)
+
+[node name="Brick3" parent="." instance=ExtResource("1_dv0jc")]
+position = Vector2(568, 129)
+
+[node name="Brick4" parent="." instance=ExtResource("1_dv0jc")]
+position = Vector2(654, 129)
+
+[node name="Brick5" parent="." instance=ExtResource("1_dv0jc")]
+position = Vector2(301, 129)
+
+[node name="Brick6" parent="." instance=ExtResource("1_dv0jc")]
+position = Vector2(219, 129)
+
+[node name="Brick7" parent="." instance=ExtResource("1_dv0jc")]
+position = Vector2(130, 129)
+
+[node name="Brick8" parent="." instance=ExtResource("1_dv0jc")]
+position = Vector2(130, 166)
+
+[node name="Brick9" parent="." instance=ExtResource("1_dv0jc")]
+position = Vector2(219, 166)
+
+[node name="Brick10" parent="." instance=ExtResource("1_dv0jc")]
+position = Vector2(301, 166)
+
+[node name="Brick11" parent="." instance=ExtResource("1_dv0jc")]
+position = Vector2(388, 166)
+
+[node name="Brick12" parent="." instance=ExtResource("1_dv0jc")]
+position = Vector2(479, 166)
+
+[node name="Brick13" parent="." instance=ExtResource("1_dv0jc")]
+position = Vector2(568, 166)
+
+[node name="Brick14" parent="." instance=ExtResource("1_dv0jc")]
+position = Vector2(654, 166)
